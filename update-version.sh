@@ -18,4 +18,9 @@ BASE_VERSION="$VMAJOR.$VMINOR.$VPATCH"
 echo "Upstream version: ${GitVersion_SemVer}"
 echo "Package base version: ${BASE_VERSION}"
 
-echo "next-version: $BASE_VERSION" > ../Gitversion.yml
+echo "<Project>" > ../PkgSrc.UpstreamVersion.props
+echo "  <PropertyGroup>" >> ../PkgSrc.UpstreamVersion.props
+echo "    <UpstreamMajor>$VMAJOR</UpstreamMajor>" >> ../PkgSrc.UpstreamVersion.props
+echo "    <UpstreamMinorPatch>$VMINOR</UpstreamMinorPatch>" >> ../PkgSrc.UpstreamVersion.props
+echo "  </PropertyGroup>" >> ../PkgSrc.UpstreamVersion.props
+echo "</Project>" >> ../PkgSrc.UpstreamVersion.props

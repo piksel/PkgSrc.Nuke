@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <UpstreamMajor>5</UpstreamMajor>
+    <UpstreamMinorPatch>102</UpstreamMinorPatch>
+  </PropertyGroup>
+</Project>

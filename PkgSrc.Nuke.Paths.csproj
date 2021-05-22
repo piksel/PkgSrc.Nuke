@@ -1,36 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-<!--  <Import Project="NukePkg.Common.proj" />-->
+  
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>9</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Nuke.Util.Paths</PackageId>
+    <PackageId>PkgSrc.Nuke.Paths</PackageId>
+    <PackageVersionPatch>1</PackageVersionPatch>
+  </PropertyGroup>
+
+  <Import Project="PkgSrc.props" />
+  <PropertyGroup>
     <Description>
-      Path utils from https://github.com/nuke-build/nuke as a source-only package.
-      
-      Note this not an official package!
-      Versions follow upstream versions using X.YYZZ.R where X is Major version, Y is Minor version and X is patch version.
-      The package patch field (R) is used to denote release number of the package itself.
+Path utils from https://github.com/nuke-build/nuke as a source-only package.
+
+$(Description)
     </Description>
-    <PublisherName>piksel</PublisherName>
-    <PublishUrl>https://github.com/piksel/nuke-util-pkgs</PublishUrl>
-    <Authors>https://nuke.build</Authors>
-    <PackBuildOutput>false</PackBuildOutput>
-    <PackCompile>true</PackCompile>
-    <PackEmbeddedResource>true</PackEmbeddedResource>
-    <PackRoot>pkgsrc/$(PackageId)</PackRoot>
-    <EnablePackInference>true</EnablePackInference>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/piksel/nuke-util-pkgs</RepositoryUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
     
   <ItemGroup>
-    <PackageReference Include="GitVersionTask" Version="5.5.1" PrivateAssets="all">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="NuGetizer" Version="0.7.0" PrivateAssets="all" />
   </ItemGroup>
 
@@ -67,8 +56,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="nuke/source/**/*.cs" TargetPath="$(PackRoot)/%(RelativeDir)%(Filename)%(Extension)" />
-    <Compile Update="src/Shims/*.cs" TargetPath="$(PackRoot)/Shims/%(Filename)%(Extension)" />
+    <Compile Update="nuke/source/**/*.cs">
+      <TargetPath>$(PackRoot)/%(RelativeDir)%(Filename)%(Extension)</TargetPath>
+      <FrameworkSpecific>false</FrameworkSpecific>
+    </Compile>
+    <Compile Update="src/Shims/*.cs">
+      <TargetPath>$(PackRoot)/Shims/%(Filename)%(Extension)</TargetPath>
+      <FrameworkSpecific>false</FrameworkSpecific>
+    </Compile>
   </ItemGroup>
 
 </Project>

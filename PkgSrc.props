@@ -1,0 +1,28 @@
+<Project>
+    <Import Project="PkgSrc.UpstreamVersion.props" />
+    <PropertyGroup>
+        <PublisherName>piksel</PublisherName>
+        <PublishUrl>https://github.com/piksel</PublishUrl>
+        <Authors>Matthias Koch,Ulrich Buchgraber,Sebastian Karasek</Authors>
+        <Owners>piksel</Owners>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/piksel/nuke-util-pkgs</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageTags>PkgSrc</PackageTags>
+        <Version>$(UpstreamMajor).$(UpstreamMinorPatch).$(PackageVersionPatch)</Version>
+        <Description>
+Note this not an official package!
+Versions follow upstream versions using X.YYZZ.R where X is Major version, Y is Minor version and Z is patch version.
+The package patch field (R) is used to denote release number of the package itself.
+        </Description>
+    </PropertyGroup>
+    <PropertyGroup>
+        <PackBuildOutput>false</PackBuildOutput>
+        <PackCompile>true</PackCompile>
+        <PackEmbeddedResource>true</PackEmbeddedResource>
+        <PackRoot>pkgsrc/$(PackageId)</PackRoot>
+        <EnablePackInference>true</EnablePackInference>
+        <PackageOutputPath>$(MSBuildThisFileDirectory)\dist</PackageOutputPath>
+        <DisableGitVersionTask>true</DisableGitVersionTask>
+    </PropertyGroup>
+</Project>
