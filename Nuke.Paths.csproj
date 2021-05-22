@@ -16,12 +16,15 @@
     </Description>
     <PublisherName>piksel</PublisherName>
     <PublishUrl>https://github.com/piksel/nuke-util-pkgs</PublishUrl>
-    <Authors>https://github.com/nuke-build/nuke</Authors>
+    <Authors>https://nuke.build</Authors>
     <PackBuildOutput>false</PackBuildOutput>
     <PackCompile>true</PackCompile>
     <PackEmbeddedResource>true</PackEmbeddedResource>
-    <PackRoot>pkgsrc/$(PackageId)</PackRoot>
+    <PackRoot>content/pkgsrc/$(PackageId)</PackRoot>
     <EnablePackInference>true</EnablePackInference>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/piksel/nuke-util-pkgs</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
     
   <ItemGroup>
@@ -64,8 +67,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="nuke/source/**/*.cs" PackagePath="$(PackRoot)/%(RelativeDir)%(Filename)%(Extension)" />
-    <Compile Update="src/Shims/*.cs" PackagePath="$(PackRoot)/Shims/%(Filename)%(Extension)" />
+<!--    <Compile Update="nuke/source/**/*.cs" PackagePath="$(PackRoot)/%(RelativeDir)%(Filename)%(Extension)" />-->
+<!--    <Compile Update="src/Shims/*.cs" PackagePath="$(PackRoot)/Shims/%(Filename)%(Extension)" />-->
   </ItemGroup>
 
 </Project>
