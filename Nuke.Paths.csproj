@@ -20,7 +20,7 @@
     <PackBuildOutput>false</PackBuildOutput>
     <PackCompile>true</PackCompile>
     <PackEmbeddedResource>true</PackEmbeddedResource>
-    <PackRoot>content/pkgsrc/$(PackageId)</PackRoot>
+    <PackRoot>pkgsrc/$(PackageId)</PackRoot>
     <EnablePackInference>true</EnablePackInference>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/piksel/nuke-util-pkgs</RepositoryUrl>
@@ -67,8 +67,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<!--    <Compile Update="nuke/source/**/*.cs" PackagePath="$(PackRoot)/%(RelativeDir)%(Filename)%(Extension)" />-->
-<!--    <Compile Update="src/Shims/*.cs" PackagePath="$(PackRoot)/Shims/%(Filename)%(Extension)" />-->
+    <Compile Update="nuke/source/**/*.cs" TargetPath="$(PackRoot)/%(RelativeDir)%(Filename)%(Extension)" />
+    <Compile Update="src/Shims/*.cs" TargetPath="$(PackRoot)/Shims/%(Filename)%(Extension)" />
   </ItemGroup>
 
 </Project>
