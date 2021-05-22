@@ -1,16 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<!--  <Import Project="NukePkg.Common.proj" />-->
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>Nuke.Paths</PackageId>
-    <PackBuildOutput>false</PackBuildOutput>
-    <PackCompile>true</PackCompile>
-    <PackEmbeddedResource>true</PackEmbeddedResource>
-    <BuildSources>false</BuildSources>
     <LangVersion>9</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageId>Nuke.Util.Paths</PackageId>
+    <Description>
+      Path utils from https://github.com/nuke-build/nuke as a source-only package.
+      
+      Note this not an official package!
+      Versions follow upstream versions using X.YYZZ.R where X is Major version, Y is Minor version and X is patch version.
+      The package patch field (R) is used to denote release number of the package itself.
+    </Description>
+    <PublisherName>piksel</PublisherName>
+    <PublishUrl>https://github.com/piksel/nuke-util-pkgs</PublishUrl>
+    <Authors>https://github.com/nuke-build/nuke</Authors>
+    <PackBuildOutput>false</PackBuildOutput>
+    <PackCompile>true</PackCompile>
+    <PackEmbeddedResource>true</PackEmbeddedResource>
+  </PropertyGroup>
+
+
+  
   <ItemGroup>
+    <PackageReference Include="GitVersionTask" Version="5.5.1" PrivateAssets="all">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="NuGetizer" Version="0.7.0" PrivateAssets="all" />
   </ItemGroup>
 
@@ -50,7 +67,10 @@
 <!--    <Compile Include="nuke/source/Nuke.SourceGenerators/Shims/FileSystemTasks.cs" />-->
 <!--    <Compile Include="nuke/source/Nuke.SourceGenerators/Shims/EnvironmentInfo.cs" />-->
   </ItemGroup>
-  
 
+  <ItemGroup>
+    <PackInference Update="Compile"
+                   PackFolder="src/nukepkg" />
+  </ItemGroup>
 
 </Project>

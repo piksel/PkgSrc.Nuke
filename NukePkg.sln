@@ -2,6 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nuke.Paths", "Nuke.Paths.csproj", "{CC98AF46-4072-4CAF-963C-FCEEEDE8CE0E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Props", "Props", "{9CA26953-EE8F-4DD6-AA92-CE03E5BE8080}"
+ProjectSection(SolutionItems) = preProject
+	NukePkg.Common.proj = NukePkg.Common.proj
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
