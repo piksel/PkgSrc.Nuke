@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Nuke.Paths</PackageId>
+    <PackBuildOutput>false</PackBuildOutput>
+    <PackCompile>true</PackCompile>
+    <PackEmbeddedResource>true</PackEmbeddedResource>
+    <BuildSources>false</BuildSources>
+    <LangVersion>9</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NuGetizer" Version="0.7.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="nuke\**" />
+    <EmbeddedResource Remove="nuke\**" />
+    <None Remove="nuke\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Include="nuke/source/Nuke.Common/IO/AbsolutePath.cs" />
+
+    <Compile Include="nuke/source/Nuke.Common/IO/RelativePath.cs" />
+    <Compile Include="nuke/source/Nuke.Common/IO/WinRelativePath.cs" />
+    <Compile Include="nuke/source/Nuke.Common/IO/UnixRelativePath.cs" />
+
+    <Compile Include="nuke/source/Nuke.Common/IO/PathConstruction.cs" />
+<!--    <Compile Include="nuke/source/Nuke.Common/IO/FileSystemTasks.cs" />-->
+    
+    <Compile Include="nuke/source/Nuke.SourceGenerators/Shims/Glob.cs" />
+    <Compile Include="nuke/source/Nuke.SourceGenerators/Shims/GlobbingCaseSensitivity.cs" />
+    <Compile Include="nuke/source/Nuke.Common/EnvironmentInfo.Platform.cs" />
+    <Compile Include="nuke/source/Nuke.Common/EnvironmentInfo.Others.cs" />
+    <Compile Include="nuke/source/Nuke.Common/Utilities/DelegateDisposable.cs" />
+    
+    <Compile Include="nuke/source/Nuke.Common/Utilities/String.StartsEndsContains.cs" />
+    <Compile Include="nuke/source/Nuke.Common/Utilities/String.Join.cs" />
+    <Compile Include="nuke/source/Nuke.Common/Utilities/String.Trim.cs" />
+    <Compile Include="nuke/source/Nuke.Common/Utilities/String.Split.cs" />
+    <Compile Include="nuke/source/Nuke.Common/Utilities/String.Replace.cs" />
+    
+    <Compile Include="nuke/source/Nuke.Common/Utilities/Collections/Object.DescendantsAndSelf.cs" />
+    <Compile Include="nuke/source/Nuke.Common/Utilities/Collections/Enumerable.Sequence.cs" />
+    <Compile Include="nuke/source/Nuke.Common/Utilities/Collections/Dictionary.ToGeneric.cs" />
+
+    <Compile Include="nuke/source/Nuke.SourceGenerators/Shims/ControlFlow.cs" />
+<!--    <Compile Include="nuke/source/Nuke.SourceGenerators/Shims/FileSystemTasks.cs" />-->
+<!--    <Compile Include="nuke/source/Nuke.SourceGenerators/Shims/EnvironmentInfo.cs" />-->
+  </ItemGroup>
+  
+
+
+</Project>
